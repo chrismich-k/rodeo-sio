@@ -7,14 +7,7 @@ import { Canvas } from "@react-three/fiber";
 import Scene from "./scene";
 import Scene2 from "./scene2";
 import { Player } from "tone";
-import {
-  EffectComposer,
-  Noise,
-  Vignette,
-  Scanline,
-} from "@react-three/postprocessing";
-import { Perf } from "r3f-perf";
-import { BlendFunction } from "postprocessing";
+import { EffectComposer, Noise, Vignette } from "@react-three/postprocessing";
 import { Glitch } from "@react-three/postprocessing";
 import { GlitchMode } from "postprocessing";
 
@@ -83,7 +76,7 @@ export default function TonePlayer() {
           <button
             className="negro-button"
             onClick={() => {
-              setPitchValueOne(random(0.001, 2));
+              setPitchValueOne(random(0.01, 2));
               setPitchValueTwo(random(0.001, 2));
               setFilterFrequencyOne(random(0, 8000));
               setFilterFrequencyTwo(random(0, 8000));
@@ -147,17 +140,17 @@ export default function TonePlayer() {
           <Canvas shadows camera={{ position: [0, 0.4, 0] }}>
             <color attach="background" args={["white"]} />
             <EffectComposer>
-              <Noise opacity={0.13} />
-              <Vignette eskil={false} offset={0.1} darkness={0.9} />
+              <Noise opacity={0.8} />
+              <Vignette eskil={false} offset={0.1} darkness={0.51} />
               <Glitch
-                delay={[0.01, 4]} // min and max glitch delay
+                delay={[1.5, 3.5]} // min and max glitch delay
                 duration={[0.3, 1.0]} // min and max glitch duration
                 strength={[0.002, 0.1]} // min and max glitch strength
                 columns={[20]}
                 mode={GlitchMode.SPORADIC} // glitch mode
                 dtSize={[1]}
                 active // turn on/off the effect (switches between "mode" prop and GlitchMode.DISABLED)
-                ratio={0.86} // Threshold for strong glitches, 0 - no weak glitches, 1 - no strong glitches.
+                ratio={0.85} // Threshold for strong glitches, 0 - no weak glitches, 1 - no strong glitches.
               />
             </EffectComposer>
             <Suspense fallback={null}>
@@ -174,9 +167,9 @@ export default function TonePlayer() {
             <color attach="background" args={["white"]} />
             <EffectComposer>
               <Noise opacity={0.5} />
-              <Vignette eskil={false} offset={0.1} darkness={0.9} />
+              <Vignette eskil={false} offset={0.1} darkness={0.51} />
               <Glitch
-                delay={[1.5, 3.5]} // min and max glitch delay
+                delay={[0.3, 1]} // min and max glitch delay
                 duration={[0.6, 1.0]} // min and max glitch duration
                 strength={[0.3, 1.0]} // min and max glitch strength
                 mode={GlitchMode.SPORADIC} // glitch mode
@@ -223,6 +216,10 @@ export default function TonePlayer() {
           step="0.1"
         ></input>
 
+        <div className="image">
+          <img src="/rodeoimagen2.jpg" alt="" />
+        </div>
+
         <div className="buttonContainer">
           <button
             className="blackButton"
@@ -234,6 +231,7 @@ export default function TonePlayer() {
           >
             🔊
           </button>
+
           <button
             className="blackButton"
             type="button"

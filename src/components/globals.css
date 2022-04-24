@@ -224,7 +224,7 @@ input[type="range"]:focus::-ms-fill-upper {
   display: flex;
   width: 100%;
   gap: 10px;
-  padding: 0.5rem 0rem 0 0rem;
+  padding: 0.5rem 0rem 2 0rem;
 }
 
 .blackButton {
@@ -233,4 +233,14 @@ input[type="range"]:focus::-ms-fill-upper {
   width: 1rem;
   height: 1.5rem;
   background: rgb(255, 255, 255);
+}
+
+.image {
+  display: flex;
+  width: 20%;
+  margin: auto;
+  gap: 80px;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  margin-left: 560px;
 }
