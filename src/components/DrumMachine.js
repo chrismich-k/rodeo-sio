@@ -5,7 +5,18 @@ import "./globals.css";
 import { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import Scene from "./scene";
+import Scene2 from "./scene2";
 import { Player } from "tone";
+import {
+  EffectComposer,
+  Noise,
+  Vignette,
+  Scanline,
+} from "@react-three/postprocessing";
+import { Perf } from "r3f-perf";
+import { BlendFunction } from "postprocessing";
+import { Glitch } from "@react-three/postprocessing";
+import { GlitchMode } from "postprocessing";
 
 const random = (min, max) => Math.random() * (max - min) + min;
 
@@ -135,7 +146,20 @@ export default function TonePlayer() {
         <div className="renderBox">
           <Canvas shadows camera={{ position: [0, 0.4, 0] }}>
             <color attach="background" args={["white"]} />
-
+            <EffectComposer>
+              <Noise opacity={0.13} />
+              <Vignette eskil={false} offset={0.1} darkness={0.9} />
+              <Glitch
+                delay={[0.01, 4]} // min and max glitch delay
+                duration={[0.3, 1.0]} // min and max glitch duration
+                strength={[0.002, 0.1]} // min and max glitch strength
+                columns={[20]}
+                mode={GlitchMode.SPORADIC} // glitch mode
+                dtSize={[1]}
+                active // turn on/off the effect (switches between "mode" prop and GlitchMode.DISABLED)
+                ratio={0.86} // Threshold for strong glitches, 0 - no weak glitches, 1 - no strong glitches.
+              />
+            </EffectComposer>
             <Suspense fallback={null}>
               <Scene
                 pitchValue={pitchValueOne}
@@ -148,9 +172,21 @@ export default function TonePlayer() {
         <div className="renderBox">
           <Canvas shadows camera={{ position: [0, 0.4, 0] }}>
             <color attach="background" args={["white"]} />
+            <EffectComposer>
+              <Noise opacity={0.5} />
+              <Vignette eskil={false} offset={0.1} darkness={0.9} />
+              <Glitch
+                delay={[1.5, 3.5]} // min and max glitch delay
+                duration={[0.6, 1.0]} // min and max glitch duration
+                strength={[0.3, 1.0]} // min and max glitch strength
+                mode={GlitchMode.SPORADIC} // glitch mode
+                active // turn on/off the effect (switches between "mode" prop and GlitchMode.DISABLED)
+                ratio={0.85} // Threshold for strong glitches, 0 - no weak glitches, 1 - no strong glitches.
+              />
+            </EffectComposer>
 
             <Suspense fallback={null}>
-              <Scene
+              <Scene2
                 pitchValue={pitchValueTwo}
                 filterFrequency={filterFrequencyTwo}
               />

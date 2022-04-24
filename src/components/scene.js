@@ -1,23 +1,17 @@
 import { OrbitControls } from "@react-three/drei";
+import Model from "./LocosComponents3D/LocoComponent";
+import MasModel from "./LocosComponents3D/MasComponent";
 
-import CrazyComponent from "./CrazyComponent";
-import Model from "./LocoComponent";
-
-
-
-const Scene = ({pitchValue, filterFrequency}) => {
-
+const Scene = ({ pitchValue, filterFrequency }) => {
   return (
     <group>
-        
-      <ambientLight intensity={0.01} />
-      <spotLight castShadow intensity={1} position={[0, 3, 3]} />
-        <OrbitControls />
+      <ambientLight intensity={0.1} />
+      <spotLight castShadow intensity={1} position={[1, 0.5, 2]} />
+      <OrbitControls />
       <Model pitchValue={pitchValue} filterFrequency={filterFrequency} />
-        <CrazyComponent pitchValue={pitchValue} filterFrequency={filterFrequency} />
-      
+      <MasModel pitchValue={pitchValue} filterFrequency={filterFrequency} />
     </group>
   );
-};  
+};
 
 export default Scene;

@@ -22,10 +22,10 @@ function CrazyComponent({ pitchValue, filterFrequency, props }) {
         ref={group}
         geometry={nodes.Form01001.geometry}
         material={materials["Default OBJ"]}
-        rotation={[Math.PI / 2, 0, 0]}
+        rotation={[Math.PI / 0.33, 0, 0]}
         {...props}
       >
-        <meshStandardMaterial wireframe color="black" />
+        <meshStandardMaterial color="white" />
       </mesh>
     </group>
   );
