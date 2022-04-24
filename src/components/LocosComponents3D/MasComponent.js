@@ -5,7 +5,7 @@ import { useFrame } from "@react-three/fiber";
 function MasModel({ pitchValue, filterFrequency, props }) {
   const group = useRef();
   useFrame(() => {
-    group.current.rotation.x += pitchValue / 130;
+    group.current.rotation.x += pitchValue / 50;
     group.current.rotation.z += filterFrequency / 630000;
   });
   const { nodes, materials } = useGLTF("/Model3_Comp.glb");

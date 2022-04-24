@@ -6,7 +6,7 @@ function CrazyComponent({ pitchValue, filterFrequency, props }) {
   const group = useRef();
 
   useFrame(() => {
-    group.current.rotation.x += pitchValue / 100;
+    group.current.rotation.x += pitchValue / 50;
     group.current.rotation.z += filterFrequency / 180000;
 
     // group.current.rotation.x += 0.1;
