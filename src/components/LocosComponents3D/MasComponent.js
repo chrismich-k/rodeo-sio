@@ -17,7 +17,7 @@ function MasModel({ pitchValue, filterFrequency, props }) {
         rotation={[Math.PI / 2, -3, 0]}
         {...props}
       >
-        <meshStandardMaterial wireframe color="white" />
+        <meshStandardMaterial wireframe color="black" />
       </mesh>
     </group>
   );

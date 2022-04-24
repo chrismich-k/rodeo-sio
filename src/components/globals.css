@@ -217,7 +217,7 @@ input[type="range"]:focus::-ms-fill-upper {
   flex-direction: column;
   width: 90%;
   margin: auto;
-  padding: 1rem 0rem 0 0rem;
+  padding: 8rem 0rem 0 0rem;
 }
 
 .buttonContainer {
@@ -240,7 +240,7 @@ input[type="range"]:focus::-ms-fill-upper {
   width: 20%;
   margin: auto;
   gap: 80px;
-  flex-direction: row-reverse;
+  flex-direction: row;
   justify-content: space-between;
-  margin-left: 560px;
+  margin-left: 0px;
 }

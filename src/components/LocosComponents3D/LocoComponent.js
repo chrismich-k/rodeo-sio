@@ -5,7 +5,7 @@ import { useFrame } from "@react-three/fiber";
 function Model({ pitchValue, filterFrequency, props }) {
   const group = useRef();
   useFrame(() => {
-    group.current.rotation.x += pitchValue / 130;
+    group.current.rotation.x += pitchValue / 50;
     group.current.rotation.z += filterFrequency / 630000;
   });
   const { nodes, materials } = useGLTF("/Model1_Comp.glb");
@@ -18,7 +18,7 @@ function Model({ pitchValue, filterFrequency, props }) {
         rotation={[Math.PI / 0.7, 0, 0]}
         {...props}
       >
-        <meshStandardMaterial wireframe color="black" />
+        <meshStandardMaterial color="white" />
       </mesh>
     </group>
   );

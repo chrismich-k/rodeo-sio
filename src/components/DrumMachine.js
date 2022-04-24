@@ -3,7 +3,7 @@ import { MyAudioContext } from "./AudioPlayer";
 import * as Tone from "tone";
 import "./globals.css";
 import { Suspense } from "react";
-import { Canvas } from "@react-three/fiber";
+import { Canvas, useFrame } from "@react-three/fiber";
 import Scene from "./scene";
 import Scene2 from "./scene2";
 import { Player } from "tone";
@@ -137,20 +137,20 @@ export default function TonePlayer() {
 
       <div className="renderContainer">
         <div className="renderBox">
-          <Canvas shadows camera={{ position: [0, 0.4, 0] }}>
+          <Canvas shadows camera={{ position: [0, 0.1, 0] }}>
             <color attach="background" args={["white"]} />
             <EffectComposer>
               <Noise opacity={0.8} />
               <Vignette eskil={false} offset={0.1} darkness={0.51} />
               <Glitch
-                delay={[1.5, 3.5]} // min and max glitch delay
-                duration={[0.3, 1.0]} // min and max glitch duration
-                strength={[0.002, 0.1]} // min and max glitch strength
+                delay={[0.3, 2]} // min and max glitch delay
+                duration={[0.3, 1]} // min and max glitch duration
+                strength={[pitchValueOne, pitchValueTwo]} // min and max glitch strength
                 columns={[20]}
                 mode={GlitchMode.SPORADIC} // glitch mode
                 dtSize={[1]}
                 active // turn on/off the effect (switches between "mode" prop and GlitchMode.DISABLED)
-                ratio={0.85} // Threshold for strong glitches, 0 - no weak glitches, 1 - no strong glitches.
+                ratio={filterFrequencyOne} // Threshold for strong glitches, 0 - no weak glitches, 1 - no strong glitches.
               />
             </EffectComposer>
             <Suspense fallback={null}>
@@ -169,12 +169,12 @@ export default function TonePlayer() {
               <Noise opacity={0.5} />
               <Vignette eskil={false} offset={0.1} darkness={0.51} />
               <Glitch
-                delay={[0.3, 1]} // min and max glitch delay
-                duration={[0.6, 1.0]} // min and max glitch duration
-                strength={[0.3, 1.0]} // min and max glitch strength
+                delay={[0.3, 2]} // min and max glitch delay
+                duration={[0.2, 1]} // min and max glitch duration
+                strength={[pitchValueOne, pitchValueTwo]} // min and max glitch strength
                 mode={GlitchMode.SPORADIC} // glitch mode
                 active // turn on/off the effect (switches between "mode" prop and GlitchMode.DISABLED)
-                ratio={0.85} // Threshold for strong glitches, 0 - no weak glitches, 1 - no strong glitches.
+                ratio={filterFrequencyTwo} // Threshold for strong glitches, 0 - no weak glitches, 1 - no strong glitches.
               />
             </EffectComposer>
 
@@ -220,7 +220,7 @@ export default function TonePlayer() {
           <img src="/rodeoimagen2.jpg" alt="" />
         </div>
 
-        <div className="buttonContainer">
+        {/* <div className="buttonContainer">
           <button
             className="blackButton"
             type="button"
@@ -242,7 +242,7 @@ export default function TonePlayer() {
           >
             ᙮
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );

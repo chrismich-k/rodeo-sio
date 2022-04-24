@@ -5,7 +5,7 @@ import AnotherModel from "./LocosComponents3D/EsteComponent";
 const Scene2 = ({ pitchValue, filterFrequency }) => {
   return (
     <group>
-      <ambientLight intensity={0.1} />
+      <ambientLight intensity={0.01} />
       <spotLight castShadow intensity={0.5} position={[1, 1, 3]} />
       <OrbitControls />
       <CrazyComponent
