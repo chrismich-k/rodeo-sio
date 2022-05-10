@@ -46,8 +46,8 @@ const initialPitchValueOne = 0.1;
 const initialPitchValueTwo = 1;
 
 export const AudioProvider = ({ children }) => {
-  // const context = new (window.AudioContext || window.webkitAudioContext)();
-  // unlockAudioContext(context);
+  const context = new (window.AudioContext || window.webkitAudioContext)();
+  unlockAudioContext(context);
   const [counter, setCounter] = useState(0);
   const sound1 = useRandomSound(counter, soundConfig.nuevo);
   const sound2 = useRandomSound(counter, soundConfig.sound2);
@@ -128,6 +128,7 @@ export const AudioProvider = ({ children }) => {
   return (
     <MyAudioContext.Provider
       value={{
+        context,
         playerOne,
         playerTwo,
         filterFrequencyOne,
