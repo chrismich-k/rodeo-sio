@@ -128,6 +128,7 @@ export const AudioProvider = ({ children }) => {
   return (
     <MyAudioContext.Provider
       value={{
+        audioCtx,
         playerOne,
         playerTwo,
         filterFrequencyOne,
