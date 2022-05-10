@@ -13,10 +13,6 @@ import { GlitchMode } from "postprocessing";
 
 const random = (min, max) => Math.random() * (max - min) + min;
 
-document.documentElement.addEventListener("mousedown", () => {
-  if (Tone.context.state !== "running") Tone.context.resume();
-});
-
 export default function TonePlayer() {
   const {
     playerOne,
@@ -38,7 +34,6 @@ export default function TonePlayer() {
 
   useEffect(() => {
     Tone.start();
-    Tone.context.resume();
   }, []);
 
   return (
