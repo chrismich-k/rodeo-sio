@@ -34,6 +34,7 @@ export default function TonePlayer() {
 
   useEffect(() => {
     Tone.start();
+    Tone.context.resume();
   }, []);
 
   return (
@@ -226,7 +227,6 @@ export default function TonePlayer() {
             type="button"
             onClick={() => {
               Tone.context.resume();
-              Tone.start();
               playerOne.start();
               playerTwo.start();
             }}
