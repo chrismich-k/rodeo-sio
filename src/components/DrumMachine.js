@@ -261,7 +261,7 @@ export default function TonePlayer() {
               rodeo is an intuitive tool to experiment with a wild range of
               sounds.
             </p>
-            <Boton onClick={() => Tone.start()}>Aceptar</Boton>
+            <Boton onClick={() => Tone.start()}>Enter App</Boton>
           </Contenido>
         </Modal>
       </div>
