@@ -220,7 +220,7 @@ export default function TonePlayer() {
           <img src="/rodeoimagen2.jpg" alt="" />
         </div>
 
-        {/* <div className="buttonContainer">
+        <div className="buttonContainer">
           <button
             className="blackButton"
             type="button"
@@ -242,7 +242,7 @@ export default function TonePlayer() {
           >
             ᙮
           </button>
-        </div> */}
+        </div>
       </div>
     </div>
   );
