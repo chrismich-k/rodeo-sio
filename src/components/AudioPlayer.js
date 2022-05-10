@@ -38,12 +38,11 @@ export const AudioProvider = ({ children }) => {
   const sound2 = useRandomSound(counter, soundConfig.sound2);
   const playerOne = useMemo(() => new Player(Sound), []);
   const playerTwo = useMemo(() => new Player(SecondSound), []);
-  const ACTX = Tone.context; //setting up Tone.js + Web Audio API
 
   useEffect(() => {
     playerOne.load(sound1);
     playerTwo.load(sound2);
-  }, [sound1, sound2, playerOne, playerTwo, ACTX]);
+  }, [sound1, sound2, playerOne, playerTwo]);
   const [volumeValueOne, setVolumeValueOne] = useState(initialVolumeValueOne);
   useEffect(() => {
     playerOne.volume.value = volumeValueOne;
@@ -114,7 +113,6 @@ export const AudioProvider = ({ children }) => {
   return (
     <MyAudioContext.Provider
       value={{
-        ACTX,
         playerOne,
         playerTwo,
         filterFrequencyOne,

@@ -225,6 +225,8 @@ export default function TonePlayer() {
             className="blackButton"
             type="button"
             onClick={() => {
+              Tone.context.resume();
+              Tone.start();
               playerOne.start();
               playerTwo.start();
             }}
