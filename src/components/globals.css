@@ -60,10 +60,6 @@ input[type="range"] {
   width: 300px;
   background: transparent;
 }
-/*###################################*/
-/*###########Responsive Range########*/
-/*###################################*/
-/*##############Core Style###########*/
 
 input[type="range"] {
   -webkit-appearance: none;
