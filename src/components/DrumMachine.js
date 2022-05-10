@@ -35,9 +35,9 @@ export default function TonePlayer() {
     setCounter,
   } = useContext(MyAudioContext);
 
-  useEffect(() => {
-    Tone.start();
-  }, []);
+  // useEffect(() => {
+  //   Tone.start();
+  // }, []);
 
   return (
     <div className="mainWrapper">
