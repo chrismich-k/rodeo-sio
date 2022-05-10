@@ -6,13 +6,13 @@ import * as Tone from "tone";
 import "./globals.css";
 import { useRandomSound } from "./randomSound";
 
-function unlockAudioContext(audioCtx) {
-  if (audioCtx.state !== "suspended") return;
+function unlockAudioContext(context) {
+  if (context.state !== "suspended") return;
   const b = document.body;
   const events = ["touchstart", "touchend", "mousedown", "keydown"];
   events.forEach((e) => b.addEventListener(e, unlock, false));
   function unlock() {
-    audioCtx.resume().then(clean);
+    context.resume().then(clean);
   }
   function clean() {
     events.forEach((e) => b.removeEventListener(e, unlock));
@@ -46,8 +46,8 @@ const initialPitchValueOne = 0.1;
 const initialPitchValueTwo = 1;
 
 export const AudioProvider = ({ children }) => {
-  const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-  unlockAudioContext(audioCtx);
+  // const context = new (window.AudioContext || window.webkitAudioContext)();
+  // unlockAudioContext(context);
   const [counter, setCounter] = useState(0);
   const sound1 = useRandomSound(counter, soundConfig.nuevo);
   const sound2 = useRandomSound(counter, soundConfig.sound2);
@@ -128,7 +128,6 @@ export const AudioProvider = ({ children }) => {
   return (
     <MyAudioContext.Provider
       value={{
-        audioCtx,
         playerOne,
         playerTwo,
         filterFrequencyOne,
