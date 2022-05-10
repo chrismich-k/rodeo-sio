@@ -6,19 +6,6 @@ import * as Tone from "tone";
 import "./globals.css";
 import { useRandomSound } from "./randomSound";
 
-function unlockAudioContext(context) {
-  if (context.state !== "suspended") return;
-  const b = document.body;
-  const events = ["touchstart", "touchend", "mousedown", "keydown"];
-  events.forEach((e) => b.addEventListener(e, unlock, false));
-  function unlock() {
-    context.resume().then(clean);
-  }
-  function clean() {
-    events.forEach((e) => b.removeEventListener(e, unlock));
-  }
-}
-
 const soundConfig = {
   nuevo: {
     min: 3,
@@ -46,18 +33,17 @@ const initialPitchValueOne = 0.1;
 const initialPitchValueTwo = 1;
 
 export const AudioProvider = ({ children }) => {
-  const context = new (window.AudioContext || window.webkitAudioContext)();
-  unlockAudioContext(context);
   const [counter, setCounter] = useState(0);
   const sound1 = useRandomSound(counter, soundConfig.nuevo);
   const sound2 = useRandomSound(counter, soundConfig.sound2);
   const playerOne = useMemo(() => new Player(Sound), []);
   const playerTwo = useMemo(() => new Player(SecondSound), []);
+  const ACTX = Tone.context; //setting up Tone.js + Web Audio API
 
   useEffect(() => {
     playerOne.load(sound1);
     playerTwo.load(sound2);
-  }, [sound1, sound2, playerOne, playerTwo]);
+  }, [sound1, sound2, playerOne, playerTwo, ACTX]);
   const [volumeValueOne, setVolumeValueOne] = useState(initialVolumeValueOne);
   useEffect(() => {
     playerOne.volume.value = volumeValueOne;
@@ -128,7 +114,7 @@ export const AudioProvider = ({ children }) => {
   return (
     <MyAudioContext.Provider
       value={{
-        context,
+        ACTX,
         playerOne,
         playerTwo,
         filterFrequencyOne,
