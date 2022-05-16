@@ -10,13 +10,13 @@ import { Player } from "tone";
 import { EffectComposer, Noise, Vignette } from "@react-three/postprocessing";
 import { Glitch } from "@react-three/postprocessing";
 import { GlitchMode } from "postprocessing";
-import styled from "styled-components";
-import Modal from "./Modal";
+// import styled from "styled-components";
+// import Modal from "./Modal";
 
 const random = (min, max) => Math.random() * (max - min) + min;
 
 export default function TonePlayer() {
-  const [estadoModal1, cambiarEstadoModal1] = useState(false);
+  // const [estadoModal1, cambiarEstadoModal1] = useState(false);
   const {
     playerOne,
     playerTwo,
@@ -223,7 +223,7 @@ export default function TonePlayer() {
           <img src="/rodeoimagen2.jpg" alt="" />
         </div>
 
-        <div className="buttonContainer">
+        {/* <div className="buttonContainer">
           <button
             className="blackButton"
             type="button"
@@ -263,52 +263,52 @@ export default function TonePlayer() {
             </p>
             <Boton onClick={() => Tone.start()}>Enter App</Boton>
           </Contenido>
-        </Modal>
+        </Modal> */}
       </div>
     </div>
   );
 }
 
-const ContenedorBotones = styled.div`
-  padding: 40px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-`;
+// const ContenedorBotones = styled.div`
+//   padding: 40px;
+//   display: flex;
+//   flex-wrap: wrap;
+//   justify-content: center;
+//   gap: 20px;
+// `;
 
-const Boton = styled.button`
-  display: block;
-  padding: 10px 30px;
-  border-radius: 100px;
-  color: #fff;
-  border: none;
-  background: #1766dc;
-  cursor: pointer;
-  font-family: "Roboto", sans-serif;
-  font-weight: 500;
-  transition: 0.3s ease all;
-  &:hover {
-    background: #0066ff;
-  }
-`;
+// const Boton = styled.button`
+//   display: block;
+//   padding: 10px 30px;
+//   border-radius: 100px;
+//   color: #fff;
+//   border: none;
+//   background: #1766dc;
+//   cursor: pointer;
+//   font-family: "Roboto", sans-serif;
+//   font-weight: 500;
+//   transition: 0.3s ease all;
+//   &:hover {
+//     background: #0066ff;
+//   }
+// `;
 
-const Contenido = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  h1 {
-    font-size: 42px;
-    font-weight: 700;
-    margin-bottom: 10px;
-  }
-  p {
-    font-size: 18px;
-    margin-bottom: 20px;
-  }
-  img {
-    width: 100%;
-    vertical-align: top;
-    border-radius: 3px;
-  }
-`;
+// const Contenido = styled.div`
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   h1 {
+//     font-size: 42px;
+//     font-weight: 700;
+//     margin-bottom: 10px;
+//   }
+//   p {
+//     font-size: 18px;
+//     margin-bottom: 20px;
+//   }
+//   img {
+//     width: 100%;
+//     vertical-align: top;
+//     border-radius: 3px;
+//   }
+// `;
