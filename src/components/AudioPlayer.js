@@ -6,6 +6,11 @@ import * as Tone from "tone";
 import "./globals.css";
 import { useRandomSound } from "./randomSound";
 
+const unmuteAudio = require('unmute-ios-audio')
+ 
+// Call once, as early as possible in the page lifecycle
+unmuteAudio()
+
 const soundConfig = {
   nuevo: {
     min: 3,
