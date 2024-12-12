@@ -1,15 +1,15 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import { Player } from "tone";
-import Sound from "./sounds/weirdDrum.mp3";
-import SecondSound from "./sounds/nuevo9.mp3";
+import Sound from "/sounds/weirdDrum.mp3";
+import SecondSound from "/sounds/nuevo9.mp3";
 import * as Tone from "tone";
-import "./globals.css";
-import { useRandomSound } from "./randomSound";
+import "@/globals.css";
+import { useRandomSound } from "@/hooks/useRandomSound.js";
 
-const unmuteAudio = require('unmute-ios-audio')
+//import { unmuteAudio } from "@unmute-ios-audio";
  
 // Call once, as early as possible in the page lifecycle
-unmuteAudio()
+//unmuteAudio()
 
 const soundConfig = {
   nuevo: {
@@ -41,8 +41,8 @@ export const AudioProvider = ({ children }) => {
   const [counter, setCounter] = useState(0);
   const sound1 = useRandomSound(counter, soundConfig.nuevo);
   const sound2 = useRandomSound(counter, soundConfig.sound2);
-  const playerOne = useMemo(() => new Player(Sound), []);
-  const playerTwo = useMemo(() => new Player(SecondSound), []);
+  const playerOne = useMemo(() => new Tone.Player(Sound), []);
+  const playerTwo = useMemo(() => new Tone.Player(SecondSound), []);
 
   useEffect(() => {
     playerOne.load(sound1);

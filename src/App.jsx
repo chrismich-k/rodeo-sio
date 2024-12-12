@@ -1,9 +1,9 @@
-import DrumMachine from "./components/DrumMachine";
-import { AudioProvider } from "./components/AudioPlayer";
-// import Scene from "./components/scene";
+import DrumMachine from "@/components/DrumMachine.jsx";
+import { AudioProvider } from "@/context/AudioContext.jsx";
+// import Scene from "@/components/scene";
 // import { Canvas } from "@react-three/fiber";
 // import { Suspense } from "react";
-// import { useRandomSound } from "./components/randomSound";
+// import { useRandomSound } from "@/components/randomSound";
 
 const soundConfig = {
   nuevo: {

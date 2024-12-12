@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useContext } from "react";
-import { MyAudioContext } from "./AudioPlayer";
+import { MyAudioContext } from "@/context/AudioContext.jsx";
 import * as Tone from "tone";
-import "./globals.css";
+import "@/globals.css";
 import { Suspense } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import Scene from "./scene";
-import Scene2 from "./scene2";
-import { Player } from "tone";
+import Scene from "./scene.jsx";
+import Scene2 from "./scene2.jsx";
+//import { Player } from "tone";
 import { EffectComposer, Noise, Vignette } from "@react-three/postprocessing";
 import { Glitch } from "@react-three/postprocessing";
 import { GlitchMode } from "postprocessing";

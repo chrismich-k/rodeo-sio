@@ -3,32 +3,24 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@react-three/drei": "^9.4.2",
-    "@react-three/fiber": "^8.0.11",
-    "@react-three/postprocessing": "^2.3.2",
-    "@testing-library/jest-dom": "^5.16.3",
-    "@testing-library/react": "^12.1.4",
-    "@testing-library/user-event": "^13.5.0",
+    "@react-three/drei": "*",
+    "@react-three/fiber": "*",
+    "@react-three/postprocessing": "*",
     "camera-controls": "^1.34.3",
     "immer": "^9.0.12",
-    "node-sass": "^7.0.1",
-    "r3f-perf": "^6.0.1",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "react-rangeslider": "^2.2.0",
-    "react-scripts": "5.0.0",
-    "react-simple-range": "^2.0.0",
+    "r3f-perf": "7.2.3",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
     "styled-components": "^5.3.5",
-    "three": "^0.139.2",
-    "tone": "^14.7.77",
+    "tone": "14.8.26",
     "unmute-ios-audio": "^3.3.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "vite",
+    "build": "vite build",
+    "test": "vite preview",
+    "dev": "vite"
   },
   "eslintConfig": {
     "extends": [
@@ -47,5 +39,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "ajv": "^8.17.1",
+    "vite": "^6.0.3"
   }
 }
